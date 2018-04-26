@@ -119,7 +119,7 @@ bool DeviceInfoDelegate::waitForAccurateSystemClock() {
 // =============================================================================
 // GPIODelegate
 // =============================================================================
-#define GPIO_TO_USE  5
+#define GPIO_TO_USE  1
 
 #define GPIO2_DR  0x30210000
 #define BLOCK_SIZE  (4*1024)
@@ -136,8 +136,8 @@ public:
 
         int  fd;
    
-        system("echo 37 > /sys/class/gpio/export");
-        system("echo out > /sys/class/gpio/gpio37/direction");
+        system("echo 33 > /sys/class/gpio/export");
+        system("echo out > /sys/class/gpio/gpio33/direction");
 
         // map the GPIO stuff into our address space
         if ((fd = open("/dev/mem", O_RDWR | O_SYNC) ) < 0) {

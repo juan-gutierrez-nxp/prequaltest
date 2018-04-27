@@ -119,9 +119,9 @@ bool DeviceInfoDelegate::waitForAccurateSystemClock() {
 // =============================================================================
 // GPIODelegate
 // =============================================================================
-#define GPIO_TO_USE  1
+#define GPIO_TO_USE  10 // GPIO_3_10
 
-#define GPIO2_DR  0x30210000
+#define GPIO2_DR  0x30220000
 #define BLOCK_SIZE  (4*1024)
 
 #define GPIO_PTR_TYPE volatile unsigned *
@@ -135,9 +135,9 @@ public:
     GPIODelegateImplRaspPi(DeviceInfoDelegate *deviceInfoDel) {
 
         int  fd;
-   
-        system("echo 33 > /sys/class/gpio/export");
-        system("echo out > /sys/class/gpio/gpio33/direction");
+
+        system("echo 74 > /sys/class/gpio/export");
+        system("echo out > /sys/class/gpio/gpio74/direction");
 
         // map the GPIO stuff into our address space
         if ((fd = open("/dev/mem", O_RDWR | O_SYNC) ) < 0) {

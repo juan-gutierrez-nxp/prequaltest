@@ -86,6 +86,7 @@ int DeviceInfoDelegate::getDeviceIdleTime() {
 
 const char* DeviceInfoDelegate::getDeviceId() {
     mSerialNum = "unknown";
+#if 0
     FILE *pipe = popen("cat /proc/device-tree/serial-number", "r");
     if (pipe) {
         char buffer[32];
@@ -94,6 +95,7 @@ const char* DeviceInfoDelegate::getDeviceId() {
         }
         pclose(pipe);
     }
+#endif
     return mSerialNum.c_str();
 }
 
@@ -117,16 +119,9 @@ bool DeviceInfoDelegate::waitForAccurateSystemClock() {
 // =============================================================================
 // GPIODelegate
 // =============================================================================
-#define GPIO_TO_USE  9
+#define GPIO_TO_USE  5
 
-// For Raspberry Pi 2 and 3, use 0x3F000000
-#define BCM2708_BASE_PI2_PI3 0x3F000000
-
-// For Raspberry Pi Zero and Zero W, use 0x20000000
-#define BCM2708_BASE_ZERO 0x20000000
-
-#define GPIO_BASE_PI2_PI3      (BCM2708_BASE_PI2_PI3 + 0x200000)   // GPIO control
-#define GPIO_BASE_ZERO_ZEROW   (BCM2708_BASE_ZERO    + 0x200000)   //
+#define GPIO2_DR  0x30210000
 #define BLOCK_SIZE  (4*1024)
 
 #define GPIO_PTR_TYPE volatile unsigned *
@@ -138,7 +133,10 @@ private:
 
 public:
     GPIODelegateImplRaspPi(DeviceInfoDelegate *deviceInfoDel) {
+
         int  fd;
+
+		system("echo out > /sys/class/gpio/gpio37/direction");
 
         // map the GPIO stuff into our address space
         if ((fd = open("/dev/mem", O_RDWR | O_SYNC) ) < 0) {
@@ -146,22 +144,10 @@ public:
             exit(-1);
         }
 
-        // Figure out whether we have a PiZero/ZeroW or a Pi2/3
-        const char* modelID = deviceInfoDel->getDeviceType();
-
-        const char piZeroModelID[] = "Raspberry Pi Zero";
-
-        if (strncmp(modelID, piZeroModelID, strlen(piZeroModelID)) == 0) {
-            // Pi Zero detected
-            gpio_map = mmap(NULL, BLOCK_SIZE,
-                            PROT_READ | PROT_WRITE,
-                            MAP_SHARED, fd, GPIO_BASE_ZERO_ZEROW);
-        } else {
-            // Pi 2 or 3 assumed
-            gpio_map = mmap(NULL, BLOCK_SIZE,
-                            PROT_READ | PROT_WRITE,
-                            MAP_SHARED, fd, GPIO_BASE_PI2_PI3);
-        }
+        gpio_map = mmap(NULL, BLOCK_SIZE,
+                        PROT_READ | PROT_WRITE,
+                        MAP_SHARED, fd, GPIO2_DR);
+       
 
         close(fd);
 
@@ -172,19 +158,16 @@ public:
             gpio = (GPIO_PTR_TYPE) gpio_map;  // cast to correct type for this platform
         }
 
-        // initialize GPIO pin #GPIO_TO_USE to output
-        *gpio = *gpio & ~(7 << (GPIO_TO_USE * 3)); // must set to input first, before setting to output
-        *gpio = *gpio |  (1 << (GPIO_TO_USE * 3)); // set to output
 
         clearGPIO();    // and initially clear it
     }
 
     inline virtual void setGPIO() {
-        *(gpio + 7) = 1 << GPIO_TO_USE;     // set GPIO <GPIO_TO_USE>
+        *gpio |= (1 << GPIO_TO_USE);     // set GPIO <GPIO_TO_USE>
     }
 
     inline virtual void clearGPIO() {
-        *(gpio + 10) = 1 << GPIO_TO_USE;    // clear GPIO <GPIO_TO_USE>
+        *gpio &= ~(1 << GPIO_TO_USE);    // clear GPIO <GPIO_TO_USE>
     }
 };
 

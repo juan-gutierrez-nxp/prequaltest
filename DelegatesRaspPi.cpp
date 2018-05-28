@@ -135,8 +135,9 @@ public:
     GPIODelegateImplRaspPi(DeviceInfoDelegate *deviceInfoDel) {
 
         int  fd;
-
-		system("echo out > /sys/class/gpio/gpio37/direction");
+   
+        system("echo 37 > /sys/class/gpio/export");
+        system("echo out > /sys/class/gpio/gpio37/direction");
 
         // map the GPIO stuff into our address space
         if ((fd = open("/dev/mem", O_RDWR | O_SYNC) ) < 0) {

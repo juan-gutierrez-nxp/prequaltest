@@ -1,0 +1,87 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+In .doLoadActions(where, attach) :
+  trying to execute load actions without 'methods' package
+
+Attaching package: ‘lubridate’
+
+The following object is masked from ‘package:base’:
+
+    date
+
+[1] "/home/jgutierrez/NXP/MRM/mrm_prequaltest_mx7d/testresults/i.MX7D_20180529T230243Z"
+[1] "i.MX7D"
+[1] "/home/jgutierrez/NXP/MRM/mrm_prequaltest_mx7d/testresults/i.MX7D_20180529T230243Z/audio/audio.20180529T230243Z.wav"
+      sn delta
+1 286069    NA
+2 357246 71177
+3 431579 74333
+4 502561 70982
+5 574213 71652
+6 643678 69465
+         sn delta
+95  7387194 70300
+96  7469522 82328
+97  7543560 74038
+98  7622372 78812
+99  7697538 75166
+100 7774862 77324
+  bucket     sn burstStartSN lag_µsec
+1      5 286069       334606    11187
+2      7 357246       405782    11166
+3     10 502561       551098    11187
+4     11 574213       622751    11208
+5     13 643678       692215    11187
+6     14 713044       761581    11187
+   bucket      sn burstStartSN lag_µsec
+93    153 7387194      7435731    11187
+94    155 7469522      7518060    11208
+95    157 7543560      7592098    11208
+96    158 7622372      7670909    11187
+97    160 7697538      7746075    11187
+98    161 7774862      7823400    11208
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+null device 
+          1 
+  bucket     sn burstStartSN lag_µsec
+1      5 286069       334606    11187
+2      7 357246       405782    11166
+3     10 502561       551098    11187
+4     11 574213       622751    11208
+5     13 643678       692215    11187
+6     14 713044       761581    11187
+   bucket      sn burstStartSN lag_µsec
+93    153 7387194      7435731    11187
+94    155 7469522      7518060    11208
+95    157 7543560      7592098    11208
+96    158 7622372      7670909    11187
+97    160 7697538      7746075    11187
+98    161 7774862      7823400    11208
+null device 
+          1 
+  bucket     sn burstStartSN lag_µsec
+1      5 286069       334606    11187
+2      7 357246       405782    11166
+3     10 502561       551098    11187
+4     11 574213       622751    11208
+5     13 643678       692215    11187
+6     14 713044       761581    11187
+   bucket      sn burstStartSN lag_µsec
+93    153 7387194      7435731    11187
+94    155 7469522      7518060    11208
+95    157 7543560      7592098    11208
+96    158 7622372      7670909    11187
+97    160 7697538      7746075    11187
+98    161 7774862      7823400    11208
+Joining, by = "bucket"
+Joining, by = "bucket"

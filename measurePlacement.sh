@@ -31,7 +31,7 @@
 #   while the test is running.
 
 # SET TEST INPUT PARAMETERS ----------------
-DUT="RPi3" 		# YOUR DEVICE TYPE
+DUT="i.MX7D" 		# YOUR DEVICE TYPE
 
 # WHERE SHOULD THE RESULTS GO?
 testDir="/home/jgutierrez/NXP/MRM/mrm_prequaltest_mx7d/testresults"

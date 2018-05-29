@@ -83,11 +83,28 @@ Test PASSED from observing console output
 
 
 
+# TEST4: TIME SYNCHRONIZATION
+
+### Results
+
+Test PASSED from graphics observation: The TP95 is around **90us** of the median (TP50) line
+(Application note marked as PASSED if within 150us)
+
+![Plot with 2 i.MX7D - Device to Device TimeSync delay](TimeSync_results/DUT0-hist-skew.png)
+
+
+![Plot with 2 i.MX7D - Device to Device TimeSync Skew vs Time](TimeSync_results/DUT0-VsTime-skew.png)
+
+
+Generated CSV file is: [TimeSync3.test.csv] (TimeSync_results/TimeSync3.test.csv)
+---
+
 # TEST 5: AUDIO PLACEMENT
 
 ### Graphics
 
 ![histogram of audio placement inaccuracy](testresults/i.MX7D_20180529T230243Z/hist_i.MX7D.png)
+
 
 ![audio placement inaccuracy vs Time](testresults/i.MX7D_20180529T230243Z/VsTime_i.MX7D.png)
 

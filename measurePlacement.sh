@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 # Copyright 2017-2018 Amazon.com, Inc. or its affiliates.  All Rights Reserved. 
 #
@@ -34,8 +34,8 @@
 DUT="RPi3" 		# YOUR DEVICE TYPE
 
 # WHERE SHOULD THE RESULTS GO?
-testDir="~/testresults"
-soxDir="~/sox-14.4.2"
+testDir="/home/jgutierrez/NXP/MRM/mrm_prequaltest_mx7d/testresults"
+soxDir="/usr/bin"
 #lengthToUse="0:30:00"		# DESIRED TEST DURATION, H:MM:SS
 lengthToUse="200" # 200 seconds, should cover around 100 iterations
 
@@ -80,7 +80,12 @@ echo "Please run audioPlacementTest on the Device-Under-Test now."
 echo "Waiting for capture to complete..."
 
 # NOTE: MAC OS X SPECIFIC *****
-${soxDir}/sox --buffer 131072 --multi-threaded -D -t coreaudio "${device}" -q -t wav ${outfile} channels 2 trim 0 ${lengthToUse} 
+#${soxDir}/sox --buffer 131072 --multi-threaded -D -tpulseaudio "${device}" -q -t wav ${outfile} channels 2 trim 0 ${lengthToUse} 
+#${soxDir}/sox --buffer 131072 --multi-threaded -D -t raw -e signed-integer -r 48000 -L -b 32 /home/jgutierrez/NXP/MRM/mrm_prequaltest_mx7d/gpiolevel.wav -S -t wav ${outfile} channels 2 trim 0 ${lengthToUse}
+
+#${soxDir}/sox --buffer 131072 --multi-threaded -D -t wav "/home/jgutierrez/NXP/MRM/mrm_prequaltest_mx7d/gpiolevel.wav" -q -t wav ${outfile} channels 2 trim 0 ${lengthToUse}
+
+${soxDir}/sox --buffer 131072 --multi-threaded -D -t alsa default -S -t wav ${outfile} channels 2 trim 0 ${lengthToUse}
 
 # Process the audio file, and generate a report (if you need to look at the R log, it's there...)
 echo Processing the results, and creating a report...

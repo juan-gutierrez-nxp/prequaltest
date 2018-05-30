@@ -1,6 +1,13 @@
-# TEST 1: AUDIO PIPELINE DRIFT
+# MRM PreQual Test for i.MX7D
 
-# Results
+Test results for the MRM Pre Qualification Test for i.MX7D
+
+---
+
+
+## TEST 1: AUDIO PIPELINE DRIFT
+
+### Results
 
 Observing a 1 cycle of the sine wave we can see there is exactly 100 samples per period
 
@@ -30,16 +37,17 @@ Doing the calculations with: S1=0, S2=479993, T1=0s, T2=9.99985s
 
 **ERROR PPM** = **14.58** which is < 20 PPM, so
 
-TEST is PASSED
+**TEST is PASSED**
+
+---
 
 
 
-
-# TEST 2: HIGH-RESOLUTION TIMER
+## TEST 2: HIGH-RESOLUTION TIMER
 
 ### Results
 
-Test PASSED from observing console output
+**Test PASSED** from observing console output
 
 ### Sample Output Evidence
 
@@ -117,12 +125,22 @@ Test PASSED from observing console output
     [==========] 2 tests from 1 test case ran. (25006 ms total)
     [  PASSED  ] 2 tests.
 
+---
 
-# TEST 3: GPIO VALIDATION
+
+## TEST 3: GPIO VALIDATION
 
 ### Results
 
-Test PASSED by observing Logic Analyzers graphics the width of slow pulses are = 1s, while small pulses are .32us (< 1us)
+**Test PASSED** by observing Logic Analyzers graphics the width of slow pulses are = 1s, while small pulses are 0.32us (< 1us)
+
+
+![Gpio Slow Pulses](GPIO_validation_slow_pulses.png)
+
+
+![Gpio Short Pulses](GPIO_validation_short_pulses.png)
+
+
 
 ### Sample Output
 
@@ -169,17 +187,14 @@ Test PASSED by observing Logic Analyzers graphics the width of slow pulses are =
     [  PASSED  ] 2 tests.
 
 
-### Login Analyzer Results
-
-![Gpio Short Pulses](GPIO_validation_short_pulses.png)
-![Gpio Slow Pulses](GPIO_validation_slow_pulses.png)
+---
 
 
-# TEST4: TIME SYNCHRONIZATION
+## TEST4: TIME SYNCHRONIZATION
 
 ### Results
 
-Test PASSED from graphics observation: The TP95 is around **90us** of the median (TP50) line
+**Test PASSED** from graphics obtained from Logic Analyzer([TimeSync3.test.csv](TimeSync_results/TimeSync3.test.csv)) it can be observed that The TP95 is around **90us** of the median (TP50) line.
 (Application note marked as PASSED if within 150us)
 
 ![Plot with 2 i.MX7D - Device to Device TimeSync delay](TimeSync_results/DUT0-hist-skew.png)
@@ -188,22 +203,16 @@ Test PASSED from graphics observation: The TP95 is around **90us** of the median
 ![Plot with 2 i.MX7D - Device to Device TimeSync Skew vs Time](TimeSync_results/DUT0-VsTime-skew.png)
 
 
-Generated CSV file is: [TimeSync3.test.csv] (TimeSync_results/TimeSync3.test.csv)
+
 ---
 
-# TEST 5: AUDIO PLACEMENT
-
-### Graphics
-
-![histogram of audio placement inaccuracy](testresults/i.MX7D_20180529T230243Z/hist_i.MX7D.png)
+## TEST 5: AUDIO PLACEMENT
 
 
-![audio placement inaccuracy vs Time](testresults/i.MX7D_20180529T230243Z/VsTime_i.MX7D.png)
 
+### Sample Output from RScript results
 
-### Results
-
-Test PASSED from testresults/i.MX7D_20180529T230243Z/report_i.MX7D.txt file
+**Test PASSED** by inspecting [report_i.MX7D.txt](testresults/i.MX7D_20180529T230243Z/report_i.MX7D.txt) file
 
 
     +-----------------------------------------------------+
@@ -341,11 +350,23 @@ Test PASSED from testresults/i.MX7D_20180529T230243Z/report_i.MX7D.txt file
     98 7774862      7823400    11208                   21      .      .
 
 
-# TEST 6: AUDIO DISTRIBUTION
+### Graphics
+
+
+![histogram of audio placement inaccuracy](testresults/i.MX7D_20180529T230243Z/hist_i.MX7D.png)
+
+
+![audio placement inaccuracy vs Time](testresults/i.MX7D_20180529T230243Z/VsTime_i.MX7D.png)
+
+
+---
+
+
+## TEST 6: AUDIO DISTRIBUTION
 
 ### Results
 
-Test PASSED from observing console output 
+**Test PASSED** from observing console output 
 
 ### Sample Output Evidence
 
@@ -406,3 +427,5 @@ Test PASSED from observing console output
     [----------] Global test environment tear-down
     [==========] 1 test from 1 test case ran. (30041 ms total)
     [  PASSED  ] 1 test.
+
+---

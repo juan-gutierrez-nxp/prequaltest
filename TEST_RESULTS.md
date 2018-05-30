@@ -1,3 +1,39 @@
+# TEST 1: AUDIO PIPELINE DRIFT
+
+# Results
+
+Observing a 1 cycle of the sine wave we can see there is exactly 100 samples per period
+
+![](AudioPipelineDrift_100_Samples.png)
+
+
+On a t = 0.5 seconds the upward-going zero crossing sample is at exact multiple of 100
+
+![](AudioPipelineDrift_24000_Samples.png)
+
+
+However in a more significant t = 10s, the drifting is now visible.
+
+
+![](AudioPipelineDrift_10_Seconds.png)
+
+
+Doing the calculations with: S1=0, S2=479993, T1=0s, T2=9.99985s
+
+    wavFileFrequency = 480
+    sampleRate = 48000
+    samplesPerPeriod = sampleRate / wavFileFrequency = 100
+    error_samples = (479993 - 0) – 100 * round((479993 - 0)/100) = 7
+    deltaT = T2-T1 = 9.99985 - 0 = 9.99985
+    error_PPM = 1.0E6 * (7 / 48000) / 9.99985 = 14.58
+
+
+**ERROR PPM** = **14.58** which is < 20 PPM, so
+
+TEST is PASSED
+
+
+
 
 # TEST 2: HIGH-RESOLUTION TIMER
 

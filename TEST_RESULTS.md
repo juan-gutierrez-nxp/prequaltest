@@ -82,6 +82,62 @@ Test PASSED from observing console output
     [  PASSED  ] 2 tests.
 
 
+# TEST 3: GPIO VALIDATION
+
+### Results
+
+Test PASSED by observing Logic Analyzers graphics the width of slow pulses are = 1s, while small pulses are .32us (< 1us)
+
+### Sample Output
+
+    root@imx7d-pico:~/mrm_prequaltest_mx7d# ./preQualTest --gtest_filter="GPIO.*"
+    sh: line 0: echo: write error: Device or resource busy
+    PreQualification for device: 'Technexion PICO-IMX7 Dual/Solo', IPaddr: 192.168.1.127, run: 2018-04-27T01:08:03Z
+    
+    Note: Google Test filter = GPIO.*
+    [==========] Running 2 tests from 1 test case.
+    [----------] Global test environment set-up.
+    [----------] 2 tests from GPIO
+    [ RUN      ] GPIO.SlowAccessTest
+    Ensures that GPIO can be toggled
+    
+    Start recording on the logic analyzer.
+    GPIO high
+    GPIO low
+    GPIO high
+    GPIO low
+    GPIO high
+    GPIO low
+    GPIO high
+    GPIO low
+    GPIO high
+    GPIO low
+    Stop recording on the logic analyzer.
+    [       OK ] GPIO.SlowAccessTest (10002 ms)
+    [ RUN      ] GPIO.FastAccessTest
+    Ensures that the GPIO can be toggled quickly (<1us)
+    
+    Start recording on the logic analyzer.
+    GPIO transitioning 20 times.
+    Stop recording on the logic analyzer.
+    
+    TODO: Manually check the logic analyzer output.
+          Slow pulses should have H/L time of ~1s.
+          Fast pulses should have H/L time of <1us.
+          Duration of fast pulse section should be <20us.
+    [       OK ] GPIO.FastAccessTest (0 ms)
+    [----------] 2 tests from GPIO (10002 ms total)
+    
+    [----------] Global test environment tear-down
+    [==========] 2 tests from 1 test case ran. (10002 ms total)
+    [  PASSED  ] 2 tests.
+
+
+### Login Analyzer Results
+
+![Gpio Short Pulses](GPIO_validation_short_pulses.png)
+![Gpio Slow Pulses](GPIO_validation_slow_pulses.png)
+
 
 # TEST4: TIME SYNCHRONIZATION
 

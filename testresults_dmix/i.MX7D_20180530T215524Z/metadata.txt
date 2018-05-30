@@ -1,0 +1,3 @@
+Metadata for: /home/jgutierrez/NXP/MRM/mrm_prequaltest_mx7d/testresults/i.MX7D_20180530T215524Z
+DUT: i.MX7D
+Capture length: 200

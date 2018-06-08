@@ -31,10 +31,10 @@
 #   while the test is running.
 
 # SET TEST INPUT PARAMETERS ----------------
-DUT="i.MX7D" 		# YOUR DEVICE TYPE
+DUT="i.MX8M" 		# YOUR DEVICE TYPE
 
 # WHERE SHOULD THE RESULTS GO?
-testDir="/home/jgutierrez/NXP/MRM/mrm_prequaltest_mx7d/testresults"
+testDir="/home/jgutierrez/NXP/MRM/mrm_prequaltest_8m/testresults"
 soxDir="/usr/bin"
 #lengthToUse="0:30:00"		# DESIRED TEST DURATION, H:MM:SS
 lengthToUse="200" # 200 seconds, should cover around 100 iterations

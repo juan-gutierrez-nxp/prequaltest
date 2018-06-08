@@ -1,0 +1,3 @@
+Metadata for: /home/jgutierrez/NXP/MRM/mrm_prequaltest_8m/testresults/i.MX8M_20180608T211414Z
+DUT: i.MX8M
+Capture length: 200

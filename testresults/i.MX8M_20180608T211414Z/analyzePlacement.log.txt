@@ -1,0 +1,87 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+In .doLoadActions(where, attach) :
+  trying to execute load actions without 'methods' package
+
+Attaching package: ‘lubridate’
+
+The following object is masked from ‘package:base’:
+
+    date
+
+[1] "/home/jgutierrez/NXP/MRM/mrm_prequaltest_8m/testresults/i.MX8M_20180608T211414Z"
+[1] "i.MX8M"
+[1] "/home/jgutierrez/NXP/MRM/mrm_prequaltest_8m/testresults/i.MX8M_20180608T211414Z/audio/audio.20180608T211414Z.wav"
+      sn delta
+1 251627    NA
+2 324343 72716
+3 400353 76010
+4 472888 72535
+5 546041 73153
+6 617037 70996
+         sn delta
+117 9203171 73370
+118 9281492 78321
+119 9362790 81298
+120 9433392 70602
+121 9510467 77075
+122 9588335 77868
+  bucket     sn burstStartSN lag_µsec
+1      5 251627       300202    11979
+2      6 324343       372918    11979
+3      8 400353       448928    11979
+4      9 472888       521463    11979
+5     11 546041       594616    11979
+6     12 617037       665612    11979
+    bucket      sn burstStartSN lag_µsec
+113    190 9129801      9178375    11958
+114    191 9203171      9251746    11979
+115    193 9281492      9330067    11979
+116    195 9362790      9411365    11979
+117    196 9433392      9481967    11979
+118    198 9510467      9559042    11979
+`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+null device 
+          1 
+  bucket     sn burstStartSN lag_µsec
+1      5 251627       300202    11979
+2      6 324343       372918    11979
+3      8 400353       448928    11979
+4      9 472888       521463    11979
+5     11 546041       594616    11979
+6     12 617037       665612    11979
+    bucket      sn burstStartSN lag_µsec
+113    190 9129801      9178375    11958
+114    191 9203171      9251746    11979
+115    193 9281492      9330067    11979
+116    195 9362790      9411365    11979
+117    196 9433392      9481967    11979
+118    198 9510467      9559042    11979
+null device 
+          1 
+  bucket     sn burstStartSN lag_µsec
+1      5 251627       300202    11979
+2      6 324343       372918    11979
+3      8 400353       448928    11979
+4      9 472888       521463    11979
+5     11 546041       594616    11979
+6     12 617037       665612    11979
+    bucket      sn burstStartSN lag_µsec
+113    190 9129801      9178375    11958
+114    191 9203171      9251746    11979
+115    193 9281492      9330067    11979
+116    195 9362790      9411365    11979
+117    196 9433392      9481967    11979
+118    198 9510467      9559042    11979
+Joining, by = "bucket"
+Joining, by = "bucket"

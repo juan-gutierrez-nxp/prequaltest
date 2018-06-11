@@ -1,6 +1,6 @@
-# MRM PreQual Test for i.MX7D
+# MRM PreQual Test for i.MX8M
 
-Test results for the MRM Pre Qualification Test for i.MX7D
+Test results for the MRM Pre Qualification Test for i.MX8M
 
 ---
 
@@ -14,7 +14,7 @@ Observing a 1 cycle of the sine wave we can see there is exactly 100 samples per
 ![Audio Pipeline Drift at 100 Samples](AudioPipelineDrift_100_Samples_8M.png)
 
 
-However in a more significant t = 5s, the drifting is now visible.
+However in a more significant t = 10s, the drifting is now visible.
 
 
 ![Audio Pipeline Drift after 10 seconds](AudioPipelineDrift_10_Seconds_8M.png)
@@ -29,7 +29,7 @@ Doing the calculations with: S1=0, S2=480007, T1=0s, T2=10.00015s
     error_PPM = 1.0E6 * (7 / 48000) / 10.00015 = 14.58
 
 
-**ERROR PPM** = **MISSING** which is < 20 PPM, so
+**ERROR PPM** = 14.58 PPM which is < 20 PPM, so
 
 **TEST is PASSED**
 
@@ -210,42 +210,41 @@ Doing the calculations with: S1=0, S2=480007, T1=0s, T2=10.00015s
 
 **Test PASSED** by inspecting [report_i.MX8M.txt](testresults/i.MX8M_20180608T211414Z/report_i.MX8M.txt) file
 
-
     +-----------------------------------------------------+
     | AUDIO PLACEMENT FOR i.MX8M                          |
     | run = 2018-06-08 21:17:37 UTC, script version = 1.5 |
     +-----------------------------------------------------+
     N (number of samples) = 118
-    
-    TP0 (min)    = 11937 µs = TP50 - 42 µs
-    TP2.5        = 11958 µs = TP50 - 21 µs
-    TP50         = 11979 µs
-    TP97.5       = 11981 µs = TP50 + 2 µs
-    TP100 (max)  = 12000 µs = TP50 + 21 µs
-    
+
+    TP0 (min)    = 11937 Âµs = TP50 - 42 Âµs
+    TP2.5        = 11958 Âµs = TP50 - 21 Âµs
+    TP50         = 11979 Âµs
+    TP97.5       = 11981 Âµs = TP50 + 2 Âµs
+    TP100 (max)  = 12000 Âµs = TP50 + 21 Âµs
+
     NOTE: always manually check the audio file, too.
-    
+
     +-------------------------------------+
     | Level 1 KPI compliance (Multi-room) |
     +-------------------------------------+
-    KPI1a (TP95 spread  < 5000µs) = 23µs: PASS
-    KPI1b (TP100 spread < 5000µs) = 63µs: PASS
+    KPI1a (TP95 spread  < 5000Âµs) = 23Âµs: PASS
+    KPI1b (TP100 spread < 5000Âµs) = 63Âµs: PASS
          Samples outside V1 TP100 KPI: 0 out of 118 = ~0%
-    
+
     +------------------------------------+
     | Level 2 KPI compliance (LR Stereo) |
     +------------------------------------+
-    KPI2a (TP95 spread  < 150µs)= 23µs: PASS
-    KPI2b (TP100 spread < 150µs) = 63µs: PASS
+    KPI2a (TP95 spread  < 150Âµs)= 23Âµs: PASS
+    KPI2b (TP100 spread < 150Âµs) = 63Âµs: PASS
          Samples outside V2 TP100 KPI: 0 out of 118 = ~0%
-    
+
     +----------------------+
     | Audio Placement Data |
     +----------------------+
-    
-    Assume constant (correctable) lag is TP50(lag_µs): 11979 µs
-    
-             sn burstStartSN lag_µsec uncorrected_lag_µsec V1_KPI V2_KPI
+
+    Assume constant (correctable) lag is TP50(lag_Âµs): 11979 Âµs
+
+    	 sn burstStartSN lag_Âµsec uncorrected_lag_Âµsec V1_KPI V2_KPI
     1    251627       300202    11979                    0      .      .
     2    324343       372918    11979                    0      .      .
     3    400353       448928    11979                    0      .      .
@@ -363,7 +362,8 @@ Doing the calculations with: S1=0, S2=480007, T1=0s, T2=10.00015s
     115 9281492      9330067    11979                    0      .      .
     116 9362790      9411365    11979                    0      .      .
     117 9433392      9481967    11979                    0      .      .
-    118 9510467      9559042    11979                    0
+    118 9510467      9559042    11979                    0      .      .
+
 
 
 
